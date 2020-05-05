@@ -1,16 +1,33 @@
 {% extends 'mysite/base.html' %}
 
+
+
 {% block content %}
 
+
 	<h3>Тема: {{topic}}</h3>
- 
+
+
 	{% for entry in entries %}
+
 		<p>
-			{{entry.text|linebreaks}}
+
+			<img src="{{entry.photo.url}}">
+
 			(Дата создания: {{entry.date_added|date:'H:i d/m/Y'}})
+
 		</p>
+
 	{% empty %}
+
 		<p>Пока нет записей</p>
+
 	{% endfor %}
 
+
+
 {% endblock content %}
+re_path('^$',ListView.as_view(queryset=Img.objects.all().order_by("product"),
+template_name="image/news.html"), name="news"),
+path('', views.index, name='index'),
+re_path(r'^topics/(?P<topic_id>\w+)/$', views.topic, name='topic'),

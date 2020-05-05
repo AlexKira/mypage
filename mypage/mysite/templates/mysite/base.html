@@ -1,7 +1,90 @@
-<p><a href="{% url 'mysite:index' %}">
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	Журнал записей
+    <!-- Bootstrap CSS -->
+{% bootstrap_css %}
+    <link rel="stylesheet" type="text/css"
+      href="{% static 'mysite/css/new.css' %}">
+    <link href="/path/to/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/path/to/css/font-awesome.css" rel="stylesheet">
+{% bootstrap_javascript jquery='slim' %}
+  <title>{% block title %}FamBuild{% endblock %}</title>
+  </head>
 
-</a></p>
+<body background="{% static 'mysite/image/hom.png' %}" id ="imageclass">
+{% block sidebar %}
+    <header class = "container" id = "navigation">
+        <div class="row-lg-sm-md">
+            <div class="col-auto">
+                <nav class="navbar navbar-light" >
 
-{% block content %}{% endblock content %}
+                  <a class="navbar-brand text-light" href="{% url 'mysite:home' %}" id= "logosImage">
+                    <img src="{% static 'mysite/image/logss.png' %}"
+                    width="200" height="100" class="d-inline-block align-top rounded" alt="logo" class="img-fluid" >
+                  </a>
+
+
+                  <ul class="nav content-end" id="navigationsButton">
+                  <li class="nav-item">
+                  <a class="nav-link border-rounded-left" href="{% url 'mysite:home' %}"><h5>О НАС</h5></a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="{% url 'service:service' %}"><h5>УСЛУГИ</h5></a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="{% url 'image:index' %}"><h5>НАШИ РАБОТЫ</h5>
+                  </a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="#"><h5>ОТЗЫВЫ</h5></a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="#"><h5>КОНТАКТЫ</h5></a>
+                  </li>
+                  </ul>
+
+              </nav>
+            </div>
+      </div>
+  </header>
+
+
+  <selection class="container-fluid">
+      <div class= "column-lg-sm-md" style="position: fixed; bottom:30%; width: 5px; ">
+        <div button type="button" class="btn btn-link" id="VK">
+          <a href= "https://vk.com/fambuild">
+            <img src="{% static 'mysite/image/vk.png' %}"
+            alt="VK" class="rounded-circle">
+          </a>
+        </div>
+
+        <div button type="button" class="btn btn-link" id="YOU">
+          <a href= "https://www.youtube.com/">
+              <img src="{% static 'mysite/image/you.png' %}"
+              alt="You Tube" class="rounded-circle">
+          </a>
+        </div>
+
+        <div button type="button" class="btn btn-link" id="INST">
+          <a href= "https://www.instagram.com/fam_build/?r=nametag">
+            <img src="{% static 'mysite/image/insta.png' %}"
+            alt="Instagram" class="rounded-circle">
+          </a>
+        </div>
+    </div>
+  </selection>
+ {% endblock %}
+  <section class="container">
+    {% bootstrap_messages %}
+    {% block content %}
+    {% endblock %}
+  </section>
+
+</body>
+</html>

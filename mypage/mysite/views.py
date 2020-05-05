@@ -1,20 +1,14 @@
 from django.shortcuts import render
-from .models import Topic
+from django. http import HttpResponse, Http404
+from django.template import TemplateDoesNotExist
+from django.template.loader import get_template
 
-def index(request):
-	topics = Topic.objects.order_by('-date_added')
-	context = {
-		'topics': topics,
-	}
-	return render(request,
-		'mysite/index.html', context)
+def index(request) :
+	return render(request, 'mysite/home.html')
 
-def topic(request, topic_id):
-	topic = Topic.objects.get(id=topic_id)
-	entries = topic.entry_set.order_by('-date_added')
-	context = {
-		'topic': topic,
-		'entries': entries,
-	}
-	return render(request,
-		'mysite/topic.html', context)
+def other_page(request, page):
+	try:
+		template= get_template('mysite/' + page + '.html')
+	except TemplateDoesNotExist:
+		raise Http404
+	return HttpResponse(template.render(request=request))
