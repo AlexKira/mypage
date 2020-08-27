@@ -1,10 +1,15 @@
 from django.urls import path,include
+from . models import Photos
 from image import views
-from django.views.generic.list import ListView
-from image.views import Power
+from image.views import top
+from image.views import topic
+from django.views.generic import ListView
 from django.urls import re_path
 app_name = 'image'
 
 urlpatterns = [
-	re_path('^$', Power.as_view(), name='index'),
+
+	re_path('^$', views.top, name='index'),
+	path('topics/<id>/', views.topic, name = 'index'),
+
 ]

@@ -1,11 +1,13 @@
 from django.urls import path
-
 from mysite import views
-from mysite.views import other_page
-from mysite.views import index
+from django.urls import re_path
+from mysite.views import contact
+from mysite.views import home
+
 app_name = 'mysite'
 
 urlpatterns = [
-    path ('<str:page>/', other_page, name='other') ,
-    path('',views.index, name='home'),
+    path('',views.home, name='home'),
+    re_path('contact/',views.contact, name='contact'),
+
 ]

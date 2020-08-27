@@ -2,89 +2,137 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="yandex-verification" content="85934eba3e3162e1" />
     <!-- Bootstrap CSS -->
 {% bootstrap_css %}
-    <link rel="stylesheet" type="text/css"
-      href="{% static 'mysite/css/new.css' %}">
-    <link href="/path/to/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/path/to/css/font-awesome.css" rel="stylesheet">
-{% bootstrap_javascript jquery='slim' %}
+<link rel="stylesheet" type="text/css" href="{% static 'mysite/css/new.css' %}">
+<link rel="icon" href="{% static 'mysite/image/favicon.ico' %}" type="image/x-icon">
+<link rel="shortcut icon" href="{% static 'mysite/image/favicon.ico' %}" type="image/x-icon">
+
   <title>{% block title %}FamBuild{% endblock %}</title>
   </head>
 
-<body background="{% static 'mysite/image/hom.png' %}" id ="imageclass">
-{% block sidebar %}
-    <header class = "container" id = "navigation">
-        <div class="row-lg-sm-md">
-            <div class="col-auto">
-                <nav class="navbar navbar-light" >
+<body background="{% static 'mysite/image/hom.png' %}"
+    style="
+        background-size:cover;
+            background-repeat:no-repeat;
+                background-attachment: fixed;
+                    position:relative;
+                        display:block;
+                                margin:0 auto;
+                            padding:2px;
+                        overflow-x:visible;
+                    overflow-y:auto;
+                height:100%;
+            width:100%;
+        background-origin:padding-box;
+    background-clip:padding-box;
+    ">
 
-                  <a class="navbar-brand text-light" href="{% url 'mysite:home' %}" id= "logosImage">
-                    <img src="{% static 'mysite/image/logss.png' %}"
-                    width="200" height="100" class="d-inline-block align-top rounded" alt="logo" class="img-fluid" >
-                  </a>
-
-
-                  <ul class="nav content-end" id="navigationsButton">
-                  <li class="nav-item">
-                  <a class="nav-link border-rounded-left" href="{% url 'mysite:home' %}"><h5>О НАС</h5></a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="{% url 'service:service' %}"><h5>УСЛУГИ</h5></a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="{% url 'image:index' %}"><h5>НАШИ РАБОТЫ</h5>
-                  </a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="#"><h5>ОТЗЫВЫ</h5></a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="#"><h5>КОНТАКТЫ</h5></a>
-                  </li>
-                  </ul>
-
-              </nav>
+  <div class = "container" id="base">
+    <div class="row">
+      <div class="col-12">
+        <header>
+          <nav class="navbar navbar-expand-lg ">
+            <div>
+                <a class="navbar-brand" href="{% url 'image:index' %}">
+                  <img src="{% static 'mysite/image/logss.png' %}" width="250" height="125" alt="" loading="lazy" style="">
+                </a>
+              </div>
+                  <div class="row justify-content-center " id="navbarSupportedContent">
+                    <div class="col-12 " style="padding-left:8ex;">
+                      <ul class="navbar-nav mr-auto mt-5 mt-lg-0" >
+                        <li class="nav-item d-flex bd-highlight">
+                          <a class="nav-link p-2 flex-fill bd-highlight" href="{% url 'image:index' %}">НАШИ РАБОТЫ</a>
+                        </li>
+                        <li class="nav-item d-flex bd-highlight">
+                          <a class="nav-link p-2 flex-fill bd-highlight" href="{% url 'service:service' %}">УСЛУГИ</a>
+                        </li>
+                        <li class="nav-item d-flex bd-highlight">
+                          <a class="nav-link p-2 flex-fill bd-highlight" href="{% url 'logs:com' %}">ОТЗЫВЫ</a>
+                        </li>
+                        <li class="nav-item d-flex bd-highlight" >
+                          <a class="nav-link p-2 flex-fill bd-highlight" href="{% url 'mysite:home' %}">О НАС</a>
+                        </li>
+                        <li class="nav-item d-flex bd-highlight">
+                          <a class="nav-link p-2 flex-fill bd-highlight" href="{% url 'mysite:contact' %}">КОНТАКТЫ</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+              </header>
             </div>
+        </div>
       </div>
-  </header>
-
-
-  <selection class="container-fluid">
-      <div class= "column-lg-sm-md" style="position: fixed; bottom:30%; width: 5px; ">
-        <div button type="button" class="btn btn-link" id="VK">
+  </div>
+  <selection class="container" id="slogan">
+  <div class="col-12  text-center"
+  style="
+  position:relative;
+  margin:0 auto;
+      padding:0;
+              color:#FFFAFA;
+                  text-shadow: 1px 1px 2px black, 0 0 1em #FFF8DC;
+                      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                  font: normal small-caps 16px/18px fantasy;
+              font-family: Georgia, 'Times New Roman', Times, serif;
+          height:auto;
+      width: 80%;
+  display:block;
+  align-items: center;">
+  <h3><strong>
+    Профессиональный ремонт
+    квартир, домов,
+    коммерции и дизайн от эконом до VIP
+    в Краснодаре!
+  </strong></h3>
+  </div>
+  </selection>
+  <selection class="container">
+      <div class= "d-flex flex-column bd-highlight" id="icons">
+        <p class="p-2 bd-highlight" id="VK">
           <a href= "https://vk.com/fambuild">
             <img src="{% static 'mysite/image/vk.png' %}"
             alt="VK" class="rounded-circle">
           </a>
-        </div>
+        </p>
 
-        <div button type="button" class="btn btn-link" id="YOU">
+        <p class="p-2 bd-highlight" id="YOU">
           <a href= "https://www.youtube.com/">
               <img src="{% static 'mysite/image/you.png' %}"
               alt="You Tube" class="rounded-circle">
           </a>
-        </div>
+        </p>
 
-        <div button type="button" class="btn btn-link" id="INST">
+        <p class="p-2 bd-highlight" id="INST">
           <a href= "https://www.instagram.com/fam_build/?r=nametag">
             <img src="{% static 'mysite/image/insta.png' %}"
             alt="Instagram" class="rounded-circle">
           </a>
-        </div>
+        </p>
     </div>
   </selection>
- {% endblock %}
-  <section class="container">
+
+  <footer class="container" id="home">
     {% bootstrap_messages %}
     {% block content %}
     {% endblock %}
-  </section>
+  </footer>
 
+
+
+  <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static 'mysite/js/main.js' %}"></script>
+  <script type="text/javascript" src="{% static 'mysite/js/scrolling-scroll.js' %}"></script>
 </body>
 </html>

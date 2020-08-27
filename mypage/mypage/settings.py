@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'bootstrap4',
     'service.apps.ServiceConfig',
     'image.apps.ImageConfig',
+    'logs.apps.LogsConfig',
+
     'django_cleanup',
-    'easy_thumbnails',
+    'captcha',
 
 ]
 
@@ -116,6 +118,7 @@ LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

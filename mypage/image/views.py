@@ -1,18 +1,12 @@
 from django.shortcuts import render
 from django. http import HttpResponse
 from django.template.loader import get_template
-from django.views.generic.list import ListView
-from image.models import NewsWork
+from .models import Photos
 
-class Power(ListView):
-    context_object_name = 'NewsWork'
-    template_name ='image/news.html'
+def top(request):
+    topics = Photos.objects.all()
+    return render(request,'image/image.html', {'topics': topics,})
 
-    def get_queryset(self):
-        return NewsWork.objects.all()
-
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['-date_added'] = NewsWork.objects.all()
-        return context
+def topic(request, id):
+    id = Photos.objects.filter(id=id)
+    return render(request,'image/carusel.html', {'id': id,})

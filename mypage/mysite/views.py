@@ -1,14 +1,10 @@
 from django.shortcuts import render
-from django. http import HttpResponse, Http404
-from django.template import TemplateDoesNotExist
-from django.template.loader import get_template
+from mysite.models import Contact
 
-def index(request) :
-	return render(request, 'mysite/home.html')
+def home(request) :
+	contact = Contact.objects.all()
+	return render(request, 'mysite/home.html', {'contact':contact})
 
-def other_page(request, page):
-	try:
-		template= get_template('mysite/' + page + '.html')
-	except TemplateDoesNotExist:
-		raise Http404
-	return HttpResponse(template.render(request=request))
+def contact(request) :
+	con = Contact.objects.all()
+	return render(request, 'mysite/contact.html', {'con':con})

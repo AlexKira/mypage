@@ -29,6 +29,7 @@ urlpatterns = [
     path('home/', include('mysite.urls', namespace="mysite")),
     path('service/', include('service.urls', namespace="service")),
     path('', include('image.urls', namespace="image")),
+    path('logs', include('logs.urls', namespace="logs")),
 
 ]
 

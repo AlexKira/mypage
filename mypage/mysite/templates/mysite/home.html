@@ -1,15 +1,15 @@
 {% extends "mysite/base.html" %}
 {% block title%} О HAC {% endblock %}
-{%block content%}
-<div class="row mb-1">
-   <div class="col-lg-4 col-md-4 col-sm-12">
-    <img align="center" src="https://yt3.ggpht.com/a/AGF-l7_Nz4mBHPxcdmGgXQGODJvXOHNZytfFcnlz1A=s900-c-k-c0xffffffff-no-rj-mo" class="img-fluid">
-    <span class="text-justify"></span>
-   </div>
-   <div class="col-lg-8 col-md-8 col-sm-12 desc text-white" >
+{% load static %}
+{% block content %}
 
-    <h3><font color="#00BFFF"><br>▍Е.КОЛОТИЛИН</font></h3>
+<div class="row" id="homes">
+   <div class="col-12 col-md-6 col-sm-12 mb-3">
+    <img align="center" src="{% static 'mysite/image/kol_3.png' %}" class="img-fluid">
+   </div>
+   <div class="col-12 col-lg-5 col-sm-12 text-light text-left" id="pa">
     <blockquote>
+      <h4><font color="#3AC1EF">Е. КОЛОТИЛИН</font></h4>
       <br>
     <p> Привет! Спасибо что зашли.
 
@@ -22,6 +22,55 @@
       <p>Цель <strong>Fam Build</strong> – создать красивое и функциональное жилое пространство.</p>
 
     </blockquote>
-  </div>
-</div>
+   </div>
+
+<style media="screen">
+
+#homes{
+  margin:0 auto;
+  padding:0;
+  position:relative;
+  height:auto;
+  width:auto;
+}
+#homes img{
+  filter: contrast(90%);
+  display:block;
+  border-radius:2px;
+  margin:0 auto;
+  padding:0;
+  height:auto;
+  width:auto;
+}
+#homes p{
+  margin:0 auto;
+  padding:1em;
+  position:relative;
+}
+#homes h4{
+  desplay:inline-block;
+  line-height:100%;
+  left:0;
+  top:0;
+  margin:0 auto;
+  padding-left:1ex;
+  position:relative;
+}
+
+blockquote{
+  border-left:5px solid #00BFFF;
+  margin-top:-8px;
+  padding:10px;
+  height:100%;
+  width:100%;
+}
+div{
+  margin:5px;
+  padding:0;
+}
+#slogan{
+  display:none !important;
+}
+
+</style>
 {%endblock%}

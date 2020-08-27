@@ -10,8 +10,8 @@ class Service(models.Model):
 
 
 	class Meta:
-		verbose_name_plural = 'Вкладка: УСЛУГИ'
-		verbose_name = 'Наименование услуги'
+		verbose_name_plural = 'Меню вкладки: УСЛУГИ'
+		verbose_name = 'УСЛУГИ'
 
 		def __str__(self):
 			return self.title

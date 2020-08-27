@@ -1,12 +1,13 @@
 from django.contrib import admin
-from .models import NewsWork
+from image.models import Photos
+from django.contrib.auth.models import User
+# Register your models here.
 
-
-class NewsWorkInline(admin.TabularInline):
-    model = NewsWork
-
-@admin.register(NewsWork)
-class NewsWorkAdmin(admin.ModelAdmin):
-    list_display = ('title', 'img', 'status', 'date_added')
-    list_display_links = ('title', 'img', 'status', 'date_added')
-    inlines = [NewsWorkInline]
+@admin.register(Photos)
+class PhotosAdmin(admin.ModelAdmin):
+    list_display = ('index',
+                    'title',
+                    'top',
+                    'image',
+                    'timestamp',)
+search_fields = ('title', 'top', 'index')

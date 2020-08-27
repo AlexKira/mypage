@@ -2,39 +2,75 @@
 {% block title %}УСЛУГИ{% endblock %}
 
 {% block content %}
-
-
-	<div class="row-sm">
-
-{% for service in servic %}
-
-		<div class="row">
-			<div class="col-md-8 offset-md-2">
-				<strong>
-		<h3><p>{{forloop.parentloop.counter}}</p></h3>
-				</strong>
-			</div>
-
-				<div class="service_1 col-md-8 offset-md-2" style="background:#000000">
-
+<div class="container-fluid" id="services">
+		<div class="row justify-content-start">
+			{% for service in service %}
+			<div class="col-12 col-lg-12 col-sm-12">
+				<br>
+				<div class="service_1 " style="background:#000000">
 					<strong>
 						<blockquote class="blockquote">
-						<div class = "service text-center text-warning">
-						<h3> <p class="mb-3">{{service.title|linebreaks}}</p></h3>
-					</div>
-						<br>
-						<div class = "col-md-10 offset-md-2 text-justify text-light">
-						<h5><p>{{service.text|linebreaks}}</p></h5>
+						<div class = "text-center text-warning">
+							<h3> <p class="mb-4">{{service.title|linebreaks}}</p></h3>
+						</div>
+						<div class = "text-left text-break text-light">
+							<h5><p>{{service.text|linebreaks}}</p></h5>
 						</div>
 						</blockquote>
 					</strong>
 				</div>
-
 			</div>
+		{% endfor %}
+	</div>
+	</div>
+
+	<style>
+		#services .container-fluid{
+			position:relative;
+			height:100%;
+			width:100%;
+			min-width:200px;
+			display:block;
+			margin:0 auto;
+			padding:0;
+		}
+	.service_1 {
+		position:relative;
+		height:auto;
+		width:100%;
+		max-width:600px;
+		min-width:280px;
+		position:relative;
+		border: 2px solid #DAA520;
+		display: block;
+		margin:0 auto;
+		padding:1em;
 
 
-{% endfor %}
+		}
+		.service_1 h3{
+		position:relative;
+		display: block;
+		margin:0 auto;
+		border-width:4em;
+		border-bottom: 4px solid #DAA520;
+		padding:0;
+		font-size: calc(1.6rem + 6 * (100vw - 320px) / 880);
 
-</div>
+		}
+		.service_1 h5{
+			position:relative;
+		  display: block;
+		  margin:0 auto;
+			padding:0;
+			font-size: calc(1rem + 6 * (100vw - 320px) / 880);
+
+		}
+
+		#slogan{
+		  display:none !important;
+		}
+
+	</style>
 
 {% endblock content %}

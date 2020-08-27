@@ -1,0 +1,94 @@
+{% extends "mysite/base.html" %}
+{% block title %}ОТЗЫВЫ{% endblock %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class = "container-fluid" id="commentarier">
+  {% if names %}
+  <div class = "row" >
+    <div class = "flex-grow-1 bd-highlight" >
+      <div class="d-flex flex-column bd-highlight">
+        {% for name in names %}
+          <div class="p-2 bd-highlight text-light col col-lg-8 col-md-8 col-sm-12 "
+            style="background-color:rgba(255, 248, 220,.3); border-radius:15px;margin:15px; padding:5px;">
+              <div clas="text-monospace mb-4"><em><h5>{{name.name}}</h5></em></div>
+              <div class = "d-flex justify-content-end text-warning mb-2"style="margin:4px;">
+                <strong>{{name.date_added|date:'H:i d/m/Y'}}</strong></div>
+                <form class="row col col-md-12 col-sm-12 text-break text-dark" action="comments.html" method="post">
+                  {% csrf_token %}
+                    <div>
+	                    <p class="intructions blockquote mb-" id="colap">{{name.body}}</p>
+                    </div>
+                </form>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+
+
+  <div class="fixed-bottom" style="padding:0; padding-left:2ex; margin: 0 auto; bottom:0; transition-duration: 0.55s; -webkit-transition-duration: 0.55s;-o-transition-duration: 0.55s; -moz-transition-duration: 0.55s;">
+    <div class = "row justify-content-end">
+      <div class = "col" id="butdt" >
+        <!--Кнопка развертывания формы заполнения-->
+        <button class="btn btn-warning" type="button" data-toggle="collapse"
+          data-target="#collapseExample" aria-expanded="false"
+            aria-controls="collapseExample" id="button" > Оставить отзыв
+        </button>
+        <!--Форма для заполнения-->
+          <div class="collapse " id="collapseExample" style="width:300px; transition: 0.55s; -webkit-transition: 0.55s;-o-transition: 0.55s; -moz-transition: 0.55s;">
+            <div class="card card-body">
+              <form class= "form-horizontal" method="post">
+                {% csrf_token %}
+                  <input class="form-control mb-3" placeholder="Ф.И.О"{{form.name}}
+                  <input class="form-control mb-3" placeholder="Введите ваш @email"{{form.email}}
+                  <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"  placeholder="Оставить отзыв"{{form.body}}</textarea>
+
+                  <input type="submit" class="btn btn-warning" value="Добавить">
+
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style media="screen">
+#commentarier .container-fluid {
+  position:relative;
+  margin:0 auto;
+  padding:0;
+  height:100%;
+  width:100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+  #colap {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+  }
+  #butdt{
+    max-width:440px;
+    min-width:70px;
+    padding:5px;
+  }
+  #button{
+    height:auto;
+    width:300px;
+  }
+  #slogan{
+    display:none !important;
+  }
+
+</style>
+
+
+{% endblock content %}
